@@ -1,0 +1,171 @@
+@import "variables";
+@import "global";
+@import "scroll";
+@import "table";
+@import "login";
+@import "icons";
+@import "button";
+@import "modal";
+@import "menu";
+@import "banner";
+@import "card";
+@import "img";
+@import "utils-text";
+@import "utils-color";
+@import "utils-size";
+@import "utils-border";
+@import "utils-spacing";
+@import "editablecell";
+@import "store";
+#app{
+  height: 100%;
+}
+.ant-layout{
+  height: 100%;
+  .logo{
+    height: 50px;
+    background: #333;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 16px;
+    .logo-text {
+      color :#01adff;
+      vertical-align: middle;
+      font-size: 20px;
+    }
+    img {
+      max-height: 100%;
+      max-width: 100%;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+  }
+  .ant-layout-sider-collapsed{
+    .anticon{
+      font-size: 16px;
+      margin-left: 8px;
+    }
+    .nav-text{
+      display: none;
+    }
+    .logo {
+      background: none;
+      .logo-text {
+        display: none;
+      }
+    }
+    .ant-menu-submenu-vertical > .ant-menu-submenu-title:after{
+      display: none;
+    }
+  }
+  p {
+    margin: 10px 0 10px 0;
+  }
+}
+.gutter-example{
+  .ant-row{
+    //margin-left: 0 !important;
+    //margin-right: 0 !important;
+    >div{
+      background: transparent;
+      border: 0;
+    }
+  }
+}
+.gutter-box {
+  padding: 5px 0;
+}
+.accountTable{
+  .ant-table-pagination{
+    display: none
+  }
+}
+.gutter-box{
+  .choosetype{
+    margin-top: 10px;
+    .ant-radio-wrapper {
+      height: 80px !important;
+      margin-bottom: 20px;
+    }
+}
+
+}
+
+.nature-income{
+  .ant-card-head{
+    background: #ff9900 !important;
+    .ant-card-head-title{
+      color: #fff;
+    }
+  }
+}
+
+.nature-outcome{
+  .ant-card-head{
+    background: #81cdd8 !important;
+    .ant-card-head-title{
+      color: #fff;
+    }
+  }
+}
+.nature-grey{
+    .ant-card-head{
+    background: #ccc !important;
+    .ant-card-head-title{
+      color: #fff;
+    }
+  }
+}
+.editable-cell {
+  position: relative;
+}
+
+.editable-cell-input-wrapper,
+.editable-cell-text-wrapper {
+  padding-right: 24px;
+}
+
+.editable-cell-text-wrapper {
+  padding: 5px 24px 5px 5px;
+}
+
+.editable-cell-icon,
+.editable-cell-icon-check {
+  position: absolute;
+  right: 0;
+  width: 20px;
+  cursor: pointer;
+}
+
+.editable-cell-icon {
+  line-height: 18px;
+  display: none;
+}
+
+.editable-cell-icon-check {
+  line-height: 28px;
+}
+
+.editable-cell:hover .editable-cell-icon {
+  display: inline-block;
+}
+
+.editable-cell-icon:hover,
+.editable-cell-icon-check:hover {
+  color: #108ee9;
+}
+
+.editable-add-btn {
+  margin-bottom: 8px;
+}
+.clear {zoom:1;}    /*==for IE6/7 Maxthon2==*/
+.clear :after {clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;}
+.hidden {visibility: hidden}
+.display{visibility: visible}
+.carddetail{
+  .ant-modal-footer{
+   
+      display: none;
+    
+  }
+}

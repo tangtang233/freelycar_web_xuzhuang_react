@@ -1,0 +1,52 @@
+.big-screen-bac {
+    padding:40px 63px;
+    height: 100%;
+    background-image:-webkit-linear-gradient(180deg,#5478b4,#42b4bf); 
+    background-image:linear-gradient(180deg,#5478b4,#42b4bf);
+    .bigscreen-pageNumber {
+        margin-right: 0;
+        display: inline-block;
+        box-sizing:border-box;
+        -moz-box-sizing:border-box; /* Firefox */
+        -webkit-box-sizing:border-box; /* Safari */
+        width: 131.5px;
+        height: 131.5px;
+        padding: 50px 0;
+        font-size: 1.2vw;
+        line-height: 31.5px;
+        color: #fff;
+        text-align: center;
+        background: url(./imgs/pagelogo.png);
+        background-size: 100% 100%;
+    }
+    .bigscreen-table {
+        background: rgba(255,255,255,0.5);
+        padding:10px 30px 30px ;
+        .ant-table-bordered .ant-table-header > table, .ant-table-bordered .ant-table-body > table, .ant-table-bordered .ant-table-fixed-left table, .ant-table-bordered .ant-table-fixed-right table{
+            border:1px dashed #716f6f;
+            border-bottom: none;
+            border-right: none;
+        }
+        .ant-table-bordered .ant-table-thead > tr > th, .ant-table-bordered .ant-table-tbody > tr > td {
+            font-weight: 700;
+            border-right: 1px dashed #716f6f;
+            border-bottom: 1px  dashed #716f6f;
+            background: rgba(255,255,255,0);
+        }
+        .ant-table-bordered.ant-table-empty .ant-table-placeholder {
+            border:1px dashed #716f6f;
+            border-top: none;
+        }
+        .ant-table-bordered .ant-table-tbody > tr > td {
+            color: #1e1e1e;
+            font-size: 28px;
+        }
+        .ant-table-thead > tr > th  {
+            background: rgba(255,255,255,0);
+            font-size:30px;
+        }
+        .ant-table-bordered.ant-table-empty .ant-table-placeholder {
+            background: rgba(255,255,255,0)
+        }
+    }
+}
