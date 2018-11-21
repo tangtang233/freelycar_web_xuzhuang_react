@@ -325,6 +325,18 @@ class ItemManage extends React.Component {
             invSelectKeys: invSelectKeys,
         })
     }
+    //项目类别的修改操作
+    modifyTab2 = (record, index) => {
+        this.setState({
+            visibleType: true,
+            form2: {
+                name: record.name,
+                comment: record.comment,
+                id: record.id,
+                index: index
+            }
+        })
+    }
 
     //表格删除
     onDelete = (idArray) => {
@@ -426,23 +438,45 @@ class ItemManage extends React.Component {
             message.warn('配件名称必填项');
             return false;
         }
-
-        $.ajax({
-            url: 'api/' + localStorage.getItem('store') + '/' + 'program/add',
-            data: obj,
-            dataType: 'json',
-            type: 'post',
-            success: (res) => {
-                if (res.code == '0') {
-                    obj.key = res.data.id;
-                    obj.createDate = res.data.createDate;
-                    this.setState({
-                        data: [...this.state.data, obj]
-                    });
-
+        //id存在则调修改接口
+        if (this.state.form2.id) {
+            obj.id = this.state.form2.id;
+            console.log(this.state)
+            $.ajax({
+                url: 'api/' + localStorage.getItem('store') + '/' + 'program/modify',
+                data: obj,
+                dataType: 'json',
+                type: 'post',
+                success: (res) => {
+                    if (res.code == '0') {
+                        let data = this.state.data
+                        obj.key = res.data.id;
+                        obj.createDate = res.data.createDate;
+                        data[this.state.form2.index] = obj
+                        this.setState({
+                            data: data
+                        });
+                    }
                 }
-            }
-        })
+            })
+        } else {
+            $.ajax({
+                url: 'api/' + localStorage.getItem('store') + '/' + 'program/add',
+                data: obj,
+                dataType: 'json',
+                type: 'post',
+                success: (res) => {
+                    if (res.code == '0') {
+                        obj.key = res.data.id;
+                        obj.createDate = res.data.createDate;
+                        this.setState({
+                            data: [...this.state.data, obj]
+                        });
+
+                    }
+                }
+            })
+        }
         this.setState({ visibleType: false });
     }
 
@@ -593,6 +627,16 @@ class ItemManage extends React.Component {
             title: '备注',
             dataIndex: 'comment',
             key: 'comment'
+        }, {
+            title: '操作',
+            dataIndex: 'operation',
+            render: (text, record, index) => {
+                return (
+                    <div>
+                        <a onClick={() => { this.modifyTab2(record, index) }}>修改</a>
+                    </div>
+                );
+            },
         }];
 
         // rowSelection object indicates the need for row selection
@@ -793,7 +837,8 @@ class ItemManage extends React.Component {
 
                                 <Row style={{ marginTop: '40px', marginBottom: '20px' }}>
                                     <Col span={2}>
-                                        <Button onClick={() => this.setState({ visibleType: true })}>新增</Button>
+                                        <Button onClick={() => this.setState({ visibleType: true,
+                                            form2: {name: '', comment: ''}})}>新增</Button>
                                         {/*新增的模态框*/}
                                         <Modal
                                             title="新增类别"
