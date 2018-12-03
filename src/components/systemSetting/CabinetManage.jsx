@@ -295,15 +295,14 @@ class CabinetManage extends React.Component {
                 key: 'operation',
                 render: (text, record, index) => {
                     return <span>
-                        <span style={{ marginRight: '10px' }}
-                            onClick={() => { this.modifyInfo(record, index) }}>
-                            <a href="javascript:void(0);" style={{ marginRight: '15px' }}>
+                        <span onClick={() => { this.modifyInfo(record, index) }}>
+                            <a href="javascript:void(0);">
                                 修改
                              </a>
                         </span>
-                        <Popconfirm title="确认要删除嘛?" onConfirm={() => this.onDelete([record.id])}>
-                            <a href="javascript:void(0);">删除</a>
-                        </Popconfirm>
+                        {/*<Popconfirm title="确认要删除嘛?" onConfirm={() => this.onDelete([record.id])}>*/}
+                            {/*<a href="javascript:void(0);">删除</a>*/}
+                        {/*</Popconfirm>*/}
                     </span>
                 }
             }];
@@ -346,7 +345,7 @@ class CabinetManage extends React.Component {
                                         智能柜序号：
                                     </Col>
                                     <Col span={8}>
-                                        <Input value={this.state.form.sn} onChange={(e) => this.setFormData('sn', e.target.value)} />
+                                        <Input disabled value={this.state.form.sn} onChange={(e) => this.setFormData('sn', e.target.value)} />
                                         <span style={{ color: 'red' }}>{this.state.error1}</span>
                                     </Col>
                                 </Row>
