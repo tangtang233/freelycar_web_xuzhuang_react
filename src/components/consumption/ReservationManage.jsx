@@ -68,6 +68,7 @@ class ReservationManage extends React.Component {
       data: {
         name: this.state.name,
         licensePlate: this.state.licensePlate,
+        state: 0,
         page: page,
         number: number
       },
