@@ -133,6 +133,28 @@ class CustomerInfo extends React.Component {
             );
           } else {
             message.error(res.msg);
+              this.setState(
+                  {
+                      cards: [],
+                      carInfo: {
+                          carId: "",
+                          clientId: "",
+                          licensePlate: value,
+                          clientName: "",
+                          carBrand: "",
+                          phone: "",
+                          consumAmout: "",
+                          tips: "",
+                          gender: "",
+                          lastMiles: "",
+                          consumTimes: "",
+                          lastVisit: "",
+                          pickCarStaff: { id: "" },
+                          parkingLocation: "",
+                          miles: "",
+                          carType: ""
+                      }
+                  })
           }
         }
       });
