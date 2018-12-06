@@ -57,6 +57,9 @@ module.exports = {
         // target: 'http://localhost:8080/freelycar_xuzhuang/api/',
         //   target: 'http://192.168.0.167:8080/freelycar_xuzhuang/api/',
 
+        //全民店
+        // target: 'http://www.freelycar.com/quanmin/api/',
+
         //生产环境
         target: "http://www.freelycar.com/api/",
         changeOrigin: true,
