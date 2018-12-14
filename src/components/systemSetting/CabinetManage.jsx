@@ -345,7 +345,7 @@ class CabinetManage extends React.Component {
                                         智能柜序号：
                                     </Col>
                                     <Col span={8}>
-                                        <Input disabled value={this.state.form.sn} onChange={(e) => this.setFormData('sn', e.target.value)} />
+                                        <Input disabled={this.state.modalstate == 'modify' ? true : false} value={this.state.form.sn} onChange={(e) => this.setFormData('sn', e.target.value)} />
                                         <span style={{ color: 'red' }}>{this.state.error1}</span>
                                     </Col>
                                 </Row>
