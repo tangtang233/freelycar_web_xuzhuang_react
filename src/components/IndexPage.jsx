@@ -135,6 +135,11 @@ class IndexPage extends React.Component {
                         text: '营业汇总',
                         url: '/app/dataTable/businessSummary',
                         over: 'none'
+                    },{
+                        background: '#ffd37c',
+                        text: '流水明细',
+                        url: '/app/dataTable/flowDetails',
+                        over: 'none'
                     }]
                 }, {
                     title: '系统设置',

@@ -49,6 +49,7 @@ import ProductReceipts from './components/buySellStock/ProductReceipts.jsx';
 import StorageEdit from './components/buySellStock/StorageEdit.jsx';
 import ProviderDetail from './components/buySellStock/ProviderDetail.jsx';
 import BusinessSummary from './components/dataTable/BusinessSummary.jsx';
+import flowDetails from './components/dataTable/flowDetails.jsx';
 
 //system
 import StaffManage from './components/systemSetting/StaffManage.jsx';
@@ -113,6 +114,7 @@ const routes = < Route path={"/"} components={Page}>
         </Route>
         <Route path={"dataTable"} >
             <Route path={"businessSummary"} component={BusinessSummary} />
+            <Route path={"flowDetails"} component={flowDetails} />
         </Route>
         <Route path={"marketingManagement"}>
             <Route path={"preferentialActivities"} component={preferentialActivities} />

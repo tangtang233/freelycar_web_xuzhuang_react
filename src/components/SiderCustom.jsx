@@ -218,6 +218,9 @@ class SiderCustom extends Component {
               <Menu.Item key="/app/dataTable/businessSummary">
                 <Link to={"/app/dataTable/businessSummary"}>营业汇总</Link>
               </Menu.Item>
+                <Menu.Item key="/app/dataTable/flowDetails">
+                    <Link to={"/app/dataTable/flowDetails"}>流水明细</Link>
+                </Menu.Item>
             </SubMenu>
           )}
           {this.state.role != 3 && (
