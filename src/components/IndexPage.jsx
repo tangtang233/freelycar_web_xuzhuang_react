@@ -78,6 +78,11 @@ class IndexPage extends React.Component {
                             text: '客户管理',
                             url: '/app/member/customer',
                             over: 'none'
+                        }, {
+                            background: 'rgb(0,153,37)',
+                            text: '车险客户',
+                            url: '/app/member/autoInsurance',
+                            over: 'none'
                         }
                     ]
                 }, {
@@ -97,11 +102,6 @@ class IndexPage extends React.Component {
                             background: 'rgb(213,15,37)',
                             text: '出库',
                             url: '/app/buySellStock/sellProduct',
-                            over: 'none'
-                        }, {
-                            background: 'rgb(213,15,37)',
-                            text: '库存单据',
-                            url: '/app/buySellStock/productReceipts',
                             over: 'none'
                         }, {
                             background: 'rgb(213,15,37)',
@@ -139,6 +139,14 @@ class IndexPage extends React.Component {
                         background: '#ffd37c',
                         text: '流水明细',
                         url: '/app/dataTable/flowDetails',
+                        over: 'none'
+                    }]
+                }, {
+                    title: '营销管理',
+                    items: [{
+                        background: 'rgb(39,0,153)',
+                        text: '优惠活动',
+                        url: '/app/marketingManagement/preferentialActivities',
                         over: 'none'
                     }]
                 }, {
