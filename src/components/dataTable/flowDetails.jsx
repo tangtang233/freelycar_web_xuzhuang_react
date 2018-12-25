@@ -36,8 +36,8 @@ const columns = [
         key: 'projectName',
     }, {
         title: '金额',
-        dataIndex: 'totalPrice',
-        key: 'totalPrice'
+        dataIndex: 'totalActualPrice',
+        key: 'totalActualPrice'
     }, {
         title: '时间',
         dataIndex: 'createDate',
