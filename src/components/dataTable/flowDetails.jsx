@@ -16,8 +16,8 @@ const columns = [
         }
     }, {
         title: '车型',
-        dataIndex: 'model',
-        key: 'model'
+        dataIndex: 'carBrand',
+        key: 'carBrand'
     }, {
         title: '车牌号码',
         dataIndex: 'licensePlate',
@@ -32,12 +32,12 @@ const columns = [
         key: 'phone'
     }, {
         title: '消费项目',
-        dataIndex: 'consumption',
-        key: 'consumption',
+        dataIndex: 'projectName',
+        key: 'projectName',
     }, {
         title: '金额',
-        dataIndex: 'price',
-        key: 'price'
+        dataIndex: 'totalActualPrice',
+        key: 'totalActualPrice'
     }, {
         title: '时间',
         dataIndex: 'createDate',
@@ -47,15 +47,21 @@ const columns = [
         }
     }, {
         title: '是否会员',
-        dataIndex: 'isVip',
-        key: 'isVip'
+        dataIndex: 'isMember',
+        key: 'isMember',
+        render: (text, record, index) => {
+            if(text===0){
+                return <span>否</span>
+            } else {
+                return <span>是</span>
+            }
+        }
     }];
 
 class flowDetails extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            pagination: {},
             data: [],
             nowType: null,
             queryDate: [],
@@ -99,11 +105,11 @@ class flowDetails extends React.Component {
                     </Col>
                     <Col span={4}>
                         <Button type="primary" onClick={() => {
-                            this.getList(1, 10, this.state.nowType)
+                            this.getList(1, 10)
                         }}>查询</Button>
                     </Col>
                     <Col span={6}>
-                        <a href={`api/${localStorage.getItem('store')}/report/insurance`}>
+                        <a href={`api/${localStorage.getItem('store')}/report/orderSummary?startTime=${this.state.queryDate[0]}&endTime=${this.state.queryDate[1]}`}>
                             <Button icon="export" type="primary">
                                 导出Excel</Button>
                         </a>
@@ -115,28 +121,18 @@ class flowDetails extends React.Component {
             </Card>
         </div>
     }
+    // api/xuzhuang/report/orderSummary?startTime=2018-08-01&endTime=2018-08-31
 
-    getList = (page, number, otherExpendTypeId) => {
-        let obj
-        console.log(this.state.queryDate)
-        if (this.state.queryDate.length > 0) {
-            obj = {
+    getList = (page, number) => {
+        let obj = {
                 page: page,
-                number: number,
-                typeId: otherExpendTypeId ? otherExpendTypeId : -1,
-                startTime: this.state.queryDate.length > 0 ? new Date(this.state.queryDate[0]) : null,
-                endTime: this.state.queryDate.length > 0 ? new Date(this.state.queryDate[1]) : null,
+                pageSize: number,
+                startTime: this.state.queryDate.length > 0 ? this.state.queryDate[0] : null,
+                endTime: this.state.queryDate.length > 0 ? this.state.queryDate[1] : null,
             }
-        } else {
-            obj = {
-                typeId: otherExpendTypeId ? otherExpendTypeId : -1,
-                page: page,
-                number: number
-            }
-        }
 
         $.ajax({
-            url: 'api/' + localStorage.getItem('store') + '/' + 'charge/query',
+            url: 'api/' + localStorage.getItem('store') + '/' + 'orderSummary/list',
             data: obj,
             success: (result) => {
                 if (result.code == "0") {
