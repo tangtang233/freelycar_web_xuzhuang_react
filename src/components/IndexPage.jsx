@@ -204,7 +204,7 @@ class IndexPage extends React.Component {
         })
     }
     showModal = () => {
-        let list = Object.assign(this.state.checkedKeys);
+        let list = this.state.checkedKeys;
         list.splice(0, list.length);
         this.setState({
             visible: true,
