@@ -380,7 +380,7 @@ class ClientInfo extends React.Component {
                 <div>
                     <Button ><Link to={'app/member/addclient'}><Icon type='plus'></Icon>新增客户</Link></Button>
                     <Button style={{ margin: '0 30px 0 30px' }} onClick={this.showModal}>会员统计</Button>
-                    <a href="api/report/client">
+                    <a href="api/xuzhuang/report/client">
                         <Button icon="export" type="primary">
                             导出Excel</Button>
                     </a>
